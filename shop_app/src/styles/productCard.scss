@@ -1,0 +1,71 @@
+.card {
+    height: 400px;
+    width: 300px;    
+}
+
+.product{
+    position: relative;
+    width: inherit;
+    height: 80%;
+    background: white;    
+
+    &__img{
+    width: inherit;
+    height: 90%;
+    padding: 25px 50px;
+    }
+
+    &__stars {
+        display: flex;
+        gap: 5px;
+        height: 9%;
+        width: 100%;
+
+        .star{
+            height: 17px;
+        }
+    }
+
+    &__actions{
+        display: none;
+        gap: 20px;
+        visibility: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        min-height: 100%;
+        min-width: 100%;
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            height: 40px;
+            width: 40px;
+            border: none;
+            border-radius: 5px;
+        }
+        img{
+          height: 25px;
+        }
+    }
+
+    &:hover .product__actions{
+        display: flex;
+    }
+}
+
+.info{
+    text-align: left;
+
+    &__name{
+        display: inline-block;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    &__price{
+        font-weight: bold;
+    }
+}
