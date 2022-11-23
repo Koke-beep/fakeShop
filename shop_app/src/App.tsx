@@ -1,11 +1,15 @@
-import { ReactElement, SetStateAction, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom"
 import './App.css';
 import DashBoardProducts from './views/dashboard';
 import HeaderShop from './components/shared/header';
 import { IProduct } from './models/product.model';
 import { IApiResponse } from './models/apiResponse.model';
+import { appState, context } from './store/store';
+
 
 function App(): ReactElement<Element> {
+  
   const [ products, setProducts ] = useState<IApiResponse>({
     result: null,
     error: null
@@ -34,10 +38,15 @@ function App(): ReactElement<Element> {
   }, [])
 
   return (
-    <div className="App">
-      <HeaderShop></HeaderShop>
-      <DashBoardProducts products={products.result as IProduct[]}></DashBoardProducts>
-    </div>
+    <context.Provider value={appState}>
+      <div className="App">
+        <HeaderShop></HeaderShop>
+        <Routes>
+          <Route path="/" element={<DashBoardProducts products={products.result as IProduct[]}></DashBoardProducts>}></Route>
+          <Route path='/cartList'></Route>
+        </Routes>
+      </div>
+    </context.Provider>
   );
 }
 
