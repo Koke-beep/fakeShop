@@ -6,6 +6,7 @@ import HeaderShop from './components/shared/header';
 import { IProduct } from './models/product.model';
 import { IApiResponse } from './models/apiResponse.model';
 import { appState, context } from './store/store';
+import PaymentGateway from './components/paymentGateway';
 
 
 function App(): ReactElement<Element> {
@@ -43,7 +44,7 @@ function App(): ReactElement<Element> {
         <HeaderShop></HeaderShop>
         <Routes>
           <Route path="/" element={<DashBoardProducts products={products.result as IProduct[]}></DashBoardProducts>}></Route>
-          <Route path='/cartList'></Route>
+          <Route path='paymentGateway' element={<PaymentGateway></PaymentGateway>}></Route>
         </Routes>
       </div>
     </context.Provider>
