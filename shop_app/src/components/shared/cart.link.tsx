@@ -1,7 +1,7 @@
 import { ReactElement} from 'react'
 import '../../styles/cartLink.scss'
 import carrito  from '../../assets/svg/carrito.svg'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function CartLinkComponent({cartItems}: {[key: string]: number}): ReactElement<Element>{
     return (
         <div className='cart'>
